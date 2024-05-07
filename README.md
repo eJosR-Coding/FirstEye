@@ -20,3 +20,11 @@ You can install these tools on Debian/Ubuntu with the following commands:
 ```bash
 sudo apt update
 sudo apt install nmap toilet
+
+##Installation
+Download the Script: You can clone the repository or download the script directly from the given URL.
+```bash
+wget [URL-to-script] -O first_eye.sh
+
+
+
