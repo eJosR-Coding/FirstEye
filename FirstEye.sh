@@ -1,5 +1,5 @@
-#! /bin/bash
-toilet First eye
+#!/bin/bash
+toilet "First Eye"
 echo "                                                  
                                   
                         @@@                       
@@ -13,20 +13,34 @@ echo "
        @@@@@   @@@@             @@@    @@@@@      
           @@@@@@@@@@@        (@@@@@@@@@@@         
                @@@@@@@@@@@@@@@@@@@@@              
-                                                                              
-                                              "
-#Pasar los Argumentos
-#Los argumentos se reciben en orden y se presnetan de esa forma
+"
 
+# Pass arguments in order
 Dominio=$1
 IP=$2
-echo "El Dominio es $Dominio y la IP es: $IP"
-echo "Datos: $1, $2"
 
-#Funciones
-function Pingin(){
-echo "waiting for ping in: $IP"
-ping -c 1 $IP
+echo "Domain: $Dominio"
+echo "IP Address: $IP"
+
+# Ping function
+function ping_host() {
+    echo "Pinging $IP..."
+    ping -c 4 $IP
 }
-Pingin
 
+# Scan open ports with nmap
+function scan_ports() {
+    echo "Scanning open ports on $IP..."
+    nmap -p 1-65535 -T4 -A -v $IP
+}
+
+# OS detection with nmap
+function detect_os() {
+    echo "Detecting OS for $IP..."
+    nmap -O $IP
+}
+
+# Execute functions
+ping_host
+scan_ports
+detect_os
