@@ -1,4 +1,4 @@
-# First Eye - Reconnaissance Script
+# First Eye 
 
 "First Eye" is a Bash script designed for the initial reconnaissance phase in cybersecurity challenges, such as those found on Hack The Box. It automates the process of pinging the target, scanning for open ports, and attempting to detect the operating system.
 
